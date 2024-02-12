@@ -1,0 +1,70 @@
+body {
+  height: 100%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 36px;
+  background: rgb(156, 208, 156);
+  color: rgb(66, 46, 21);
+}
+
+img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10%;
+  outline: 3px solid rgb(126, 77, 42);
+  transition: all 0.4s;
+}
+
+h1 {
+  color: rgb(41, 18, 0);
+  text-align: center;
+}
+
+.resultsDiv {
+  gap: 36px;
+  margin-top: 48px;
+  margin-left: 10px;
+  padding: 30px;
+  border: 2px dashed black;
+  align-items: center;
+  display: none;
+}
+
+button {
+  transition: transform 0.4s;
+  display: flex;
+  margin: 10px;
+  background: rgb(126, 77, 42);
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.05em;
+  width: 250px;
+  padding: 3px;
+}
+
+button:hover {
+  background: rgb(151, 115, 88);
+  transform: scale(1.1);
+}
+
+button:hover.clicked {
+  background-color: rgb(0, 82, 37);
+}
+
+.clicked {
+  background-color: rgb(0, 82, 37);
+}
+
+:disabled {
+  color: rgb(183, 179, 179);
+}
+
+li {
+  list-style-type: none;
+  font-size: 1.05em;
+  margin-bottom: 10px;
+}
+
+.score-element {
+  background-color: antiquewhite;
+}

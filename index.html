@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Minecraft Flower Quiz (Java)</title>
+  </head>
+  <body>
+    <h1>Which Minecraft flower are you? (Java Edition)</h1>
+
+    <img
+      src="images/MinecraftFlowers.png"
+      alt="Picture of many Minecraft flowers sitting on a field."
+    />
+
+    <div class="question">
+      <h2>Pick the color you love the most.</h2>
+      <button class="Dandelion Sunflower Torchflower">Yellow</button>
+      <button class="Poppy Red_Tulip Torchflower Rose_Bush">Red</button>
+      <button class="Orange_Tulip">Orange</button>
+      <button class="Blue_Orchid Pitcher_Plant">Light Blue</button>
+      <button class="Cornflower">Dark Blue</button>
+      <button class="Allium Lilac Pitcher_Plant Peony">Purple</button>
+      <button class="Pink_Tulip Peony Allium Lilac">Pink</button>
+      <button class="White_Tulip Azure_Bluet Oxeye_Daisy Lily_of_the_Valley">
+        White
+      </button>
+      <button class="Wither_Rose">Black</button>
+    </div>
+
+    <div class="question">
+      <h2>
+        Are you more mellow and grounded--someone who prefers to lay low and
+        enjoy the little things? Or do you have a bigger and more extravagant
+        personality?
+      </h2>
+      <button class="Dandelion Poppy Blue_Orchid Azure_Bluet Wither_Rose">
+        Mellow
+      </button>
+      <button
+        class="Allium Red_Tulip Orange_Tulip White_Tulip Pink_Tulip Oxeye_Daisy Cornflower Lily_of_the_Valley"
+      >
+        In-between
+      </button>
+      <button class="Torchflower Sunflower Lilac Rose_Bush Peony Pitcher_Plant">
+        Extravagant
+      </button>
+    </div>
+
+    <div class="question">
+      <h2>
+        Would you rather have the power to defend yourself against all harm or
+        bring harm to those who may hurt you or your loved ones?
+      </h2>
+      <button
+        class="Allium Blue_Orchid Dandelion Cornflower Oxeye_Daisy Poppy Torchflower"
+      >
+        Defend
+      </button>
+      <button
+        class="Azure_Bluet Lily_of_the_Valley Red_Tulip Pink_Tulip White_Tulip Orange_Tulip Wither_Rose"
+      >
+        Attack
+      </button>
+      <button class="Sunflower Lilac Rose_Bush Peony Pitcher_Plant">
+        I don't want all that power
+      </button>
+    </div>
+
+    <div class="question">
+      <h2>
+        Pick a location you could find yourself frequenting if you had all the
+        time in the world.
+      </h2>
+      <button
+        class="Dandelion Poppy Allium Azure_Bluet Red_Tulip Orange_Tulip White_Tulip Pink_Tulip Oxeye_Daisy Cornflower Lily_of_the_Valley"
+      >
+        Flower-filled forest
+      </button>
+      <button class="Lilac Rose_Bush Peony Lily_of_the_Valley Dandelion">
+        Dark and dense forest
+      </button>
+      <button class="Poppy Dandelion">Beach</button>
+      <button class="Poppy Dandelion">Desert</button>
+      <button
+        class="Dandelion Poppy Azure_Bluet Oxeye_Daisy Cornflower Orange_Tulip Red_Tulip Pink_Tulip White_Tulip"
+      >
+        Cave
+      </button>
+      <button
+        class="Dandelion Poppy Azure_Bluet Oxeye_Daisy Cornflower Orange_Tulip Red_Tulip Pink_Tulip White_Tulip Sunflower"
+      >
+        Sunflower Plains
+      </button>
+      <button class="Blue_Orchid">Swamp</button>
+      <button class="Wither_Rose Poppy">Graveyard</button>
+      <button class="Allium Poppy Azure_Bluet Dandelion Cornflower Oxeye_Daisy">
+        Meadow
+      </button>
+    </div>
+
+    <div class="question">
+      <h2>What is your favorite animal?</h2>
+      <button class="Dandelion">Rabbit</button>
+      <button class="Pitcher_Plant">Chicken</button>
+      <button class="Pitcher_Plant">Parrot</button>
+      <button>Other</button>
+    </div>
+
+    <!-- <div class="question">
+      <h2>What is your favorite time of the day?</h2>
+      <button class="Sunflower Allium">Sunrise</button>
+      <button class="Dandelion Blue_Orchid Oxeye_Daisy Cornflower">
+        Morning
+      </button>
+      <button class="Red_Tulip Orange_Tulip White_Tulip Pink_Tulip">
+        Afternoon
+      </button>
+      <button class="Lilac Rose_Bush Peony Pitcher_Plant">Evening</button>
+      <button
+        class="Poppy Torchflower Wither_Rose Lily_of_the_Valley Azure_Bluet"
+      >
+        Dusk
+      </button>
+    </div> -->
+
+    <div class="question">
+      <h2>What do you value most in a person?</h2>
+      <button class="Oxeye_Daisy Dandelion Blue_Orchid">Kindness</button>
+      <button class="Allium Cornflower Poppy Torchflower">
+        Intelligence/Resourcefulness
+      </button>
+      <button
+        class="Red_Tulip Orange_Tulip White_Tulip Pink_Tulip Azure_Bluet Lily_of_the_Valley Wither_Rose"
+      >
+        Ambition/Strength
+      </button>
+      <button class="Lilac Rose_Bush Peony Pitcher_Plant">Beauty</button>
+    </div>
+
+    <div class="resultsDiv">
+      <h2>Scored Results:</h2>
+      <ul>
+        <li>Dandelion: <span class="score-element">0</span></li>
+        <li>Poppy: <span class="score-element">0</span></li>
+        <li>Blue Orchid: <span class="score-element">0</span></li>
+        <li>Allium: <span class="score-element">0</span></li>
+        <li>Azure Bluet: <span class="score-element">0</span></li>
+        <li>Red Tulip: <span class="score-element">0</span></li>
+        <li>Orange Tulip: <span class="score-element">0</span></li>
+        <li>White Tulip: <span class="score-element">0</span></li>
+        <li>Pink Tulip: <span class="score-element">0</span></li>
+        <li>Oxeye Daisy: <span class="score-element">0</span></li>
+        <li>Cornflower: <span class="score-element">0</span></li>
+        <li>
+          Lily of the Valley:
+          <span class="score-element">0</span>
+        </li>
+        <li>Wither Rose: <span class="score-element">0</span></li>
+        <li>Torchflower: <span class="score-element">0</span></li>
+        <li>Sunflower: <span class="score-element">0</span></li>
+        <li>Lilac: <span class="score-element">0</span></li>
+        <li>Rose Bush: <span class="score-element">0</span></li>
+        <li>Peony: <span class="score-element">0</span></li>
+        <li>Pitcher Plant: <span class="score-element">0</span></li>
+      </ul>
+      <button id="buttonInsideDiv">
+        Flower Descriptions (Understand your result(s))!
+      </button>
+    </div>
+
+    <script>
+      let myButtons = document.querySelectorAll("button");
+      var scores = Array(19).fill(0);
+      var scoresIndex = 0;
+      let scoreElement = document.querySelectorAll(".score-element");
+      var questionsCompleted = 0;
+
+      for (button of myButtons) {
+        button.onclick = matchAnswer;
+      }
+
+      function matchAnswer(event) {
+        let button = event.target;
+        let question = button.parentElement;
+
+        let isDandelion = button.classList.contains("Dandelion");
+        let isPoppy = button.classList.contains("Poppy");
+        let isBlueOrchid = button.classList.contains("Blue_Orchid");
+        let isAllium = button.classList.contains("Allium");
+        let isAzureBluet = button.classList.contains("Azure_Bluet");
+        let isRedTulip = button.classList.contains("Red_Tulip");
+        let isOrangeTulip = button.classList.contains("Orange_Tulip");
+        let isWhiteTulip = button.classList.contains("White_Tulip");
+        let isPinkTulip = button.classList.contains("Pink_Tulip");
+        let isOxeyeDaisy = button.classList.contains("Oxeye_Daisy");
+        let isCornflower = button.classList.contains("Cornflower");
+        let isLilyOfTheValley = button.classList.contains("Lily_of_the_Valley");
+        let isWitherRose = button.classList.contains("Wither_Rose");
+        let isTorchflower = button.classList.contains("Torchflower");
+        let isSunflower = button.classList.contains("Sunflower");
+        let isLilac = button.classList.contains("Lilac");
+        let isRoseBush = button.classList.contains("Rose_Bush");
+        let isPeony = button.classList.contains("Peony");
+        let isPitcherPlant = button.classList.contains("Pitcher_Plant");
+
+        button.classList.add("clicked");
+
+        if (isDandelion) {
+          scores[0]++;
+          scoreElement[0].innerHTML = scores[0];
+        }
+        if (isPoppy) {
+          scores[1]++;
+          scoreElement[1].innerHTML = scores[1];
+        }
+        if (isBlueOrchid) {
+          scores[2]++;
+          scoreElement[2].innerHTML = scores[2];
+        }
+        if (isAllium) {
+          scores[3]++;
+          scoreElement[3].innerHTML = scores[3];
+        }
+        if (isAzureBluet) {
+          scores[4]++;
+          scoreElement[4].innerHTML = scores[4];
+        }
+        if (isRedTulip) {
+          scores[5]++;
+          scoreElement[5].innerHTML = scores[5];
+        }
+        if (isOrangeTulip) {
+          scores[6]++;
+          scoreElement[6].innerHTML = scores[6];
+        }
+        if (isWhiteTulip) {
+          scores[7]++;
+          scoreElement[7].innerHTML = scores[7];
+        }
+        if (isPinkTulip) {
+          scores[8]++;
+          scoreElement[8].innerHTML = scores[8];
+        }
+        if (isOxeyeDaisy) {
+          scores[9]++;
+          scoreElement[9].innerHTML = scores[9];
+        }
+        if (isCornflower) {
+          scores[10]++;
+          scoreElement[10].innerHTML = scores[10];
+        }
+        if (isLilyOfTheValley) {
+          scores[11]++;
+          scoreElement[11].innerHTML = scores[11];
+        }
+        if (isWitherRose) {
+          scores[12]++;
+          scoreElement[12].innerHTML = scores[12];
+        }
+        if (isTorchflower) {
+          scores[13]++;
+          scoreElement[13].innerHTML = scores[13];
+        }
+        if (isSunflower) {
+          scores[14]++;
+          scoreElement[14].innerHTML = scores[14];
+        }
+        if (isLilac) {
+          scores[15]++;
+          scoreElement[15].innerHTML = scores[15];
+        }
+        if (isRoseBush) {
+          scores[16]++;
+          scoreElement[16].innerHTML = scores[16];
+        }
+        if (isPeony) {
+          scores[17]++;
+          scoreElement[17].innerHTML = scores[17];
+        }
+        if (isPitcherPlant) {
+          scores[18]++;
+          scoreElement[18].innerHTML = scores[18];
+        }
+
+        questionsCompleted++;
+        if (questionsCompleted >= 6) {
+          console.log(questionsCompleted);
+          let resultsDiv = document.querySelector(".resultsDiv");
+          resultsDiv.style.display = "block";
+          var buttonInsideDiv = document.getElementById("buttonInsideDiv");
+          buttonInsideDiv.addEventListener("click", openPage);
+          scrollToBottom();
+        }
+        disableButtons(question);
+      }
+
+      function scrollToBottom() {
+        // Get the height of the document
+        var height = document.documentElement.scrollHeight - window.innerHeight;
+        // Scroll the window to the bottom of the document
+        window.scroll({
+          top: height,
+          behavior: "smooth", // Add smooth scrolling behavior
+        });
+      }
+
+      function disableButtons(question) {
+        let currentButtons = question.querySelectorAll("button");
+        for (let button of currentButtons) {
+          button.disabled = true;
+        }
+      }
+
+      // open another page for results
+      function openPage() {
+        window.location.href = "results.html";
+      }
+    </script>
+  </body>
+</html>
