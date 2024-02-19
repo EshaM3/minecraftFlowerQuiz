@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script>
+      src = "script.js";
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
     <title>Minecraft Flower Quiz (Java)</title>
   </head>
   <body>
@@ -21,7 +28,7 @@
       <button class="Orange_Tulip">Orange</button>
       <button class="Blue_Orchid Pitcher_Plant">Light Blue</button>
       <button class="Cornflower">Dark Blue</button>
-      <button class="Allium Lilac Pitcher_Plant Peony">Purple</button>
+      <button class="Allium Lilac Pitcher_Plant">Purple</button>
       <button class="Pink_Tulip Peony Allium Lilac">Pink</button>
       <button class="White_Tulip Azure_Bluet Oxeye_Daisy Lily_of_the_Valley">
         White
@@ -98,6 +105,7 @@
       <button class="Allium Poppy Azure_Bluet Dandelion Cornflower Oxeye_Daisy">
         Meadow
       </button>
+      <button class="Torchflower Pitcher_Plant">Farm</button>
     </div>
 
     <div class="question">
@@ -107,23 +115,6 @@
       <button class="Pitcher_Plant Torchflower">Parrot</button>
       <button>Other</button>
     </div>
-
-    <!-- <div class="question">
-      <h2>What is your favorite time of the day?</h2>
-      <button class="Sunflower Allium">Sunrise</button>
-      <button class="Dandelion Blue_Orchid Oxeye_Daisy Cornflower">
-        Morning
-      </button>
-      <button class="Red_Tulip Orange_Tulip White_Tulip Pink_Tulip">
-        Afternoon
-      </button>
-      <button class="Lilac Rose_Bush Peony Pitcher_Plant">Evening</button>
-      <button
-        class="Poppy Torchflower Wither_Rose Lily_of_the_Valley Azure_Bluet"
-      >
-        Dusk
-      </button>
-    </div> -->
 
     <div class="question">
       <h2>What do you value most in a person?</h2>
@@ -139,184 +130,589 @@
       <button class="Lilac Rose_Bush Peony Sunflower">Beauty</button>
     </div>
 
-    <div class="resultsDiv">
-      <h2>Scored Results:</h2>
-      <ul>
-        <li>Dandelion: <span class="score-element">0</span></li>
-        <li>Poppy: <span class="score-element">0</span></li>
-        <li>Blue Orchid: <span class="score-element">0</span></li>
-        <li>Allium: <span class="score-element">0</span></li>
-        <li>Azure Bluet: <span class="score-element">0</span></li>
-        <li>Red Tulip: <span class="score-element">0</span></li>
-        <li>Orange Tulip: <span class="score-element">0</span></li>
-        <li>White Tulip: <span class="score-element">0</span></li>
-        <li>Pink Tulip: <span class="score-element">0</span></li>
-        <li>Oxeye Daisy: <span class="score-element">0</span></li>
-        <li>Cornflower: <span class="score-element">0</span></li>
-        <li>
-          Lily of the Valley:
-          <span class="score-element">0</span>
-        </li>
-        <li>Wither Rose: <span class="score-element">0</span></li>
-        <li>Torchflower: <span class="score-element">0</span></li>
-        <li>Sunflower: <span class="score-element">0</span></li>
-        <li>Lilac: <span class="score-element">0</span></li>
-        <li>Rose Bush: <span class="score-element">0</span></li>
-        <li>Peony: <span class="score-element">0</span></li>
-        <li>Pitcher Plant: <span class="score-element">0</span></li>
-      </ul>
-      <button id="buttonInsideDiv">
-        Flower Descriptions (Understand your result(s))!
+    <div class="question">
+      <h2>
+        What are some of your favorite things to do during your freetime? (Try
+        to pick the ones you enjoy the most)
+      </h2>
+      <button
+        class="Cornflower Poppy Pitcher_Plant Azure_Bluet Lily_of_the_Valley Red_Tulip Orange_Tulip White_Tulip Pink_Tulip Sunflower"
+      >
+        Play a sport/workout/engage in an atheltic activity
+      </button>
+      <button
+        class="Blue_Orchid Dandelion Oxeye_Daisy Sunflower White_Tulip Pink_Tulip Peony"
+      >
+        Knit/Crochet/Curl up and read a good book or short-story
+      </button>
+      <button
+        class="Lilac Rose_Bush Peony Sunflower Red_Tulip Orange_Tulip White_Tulip Pink_Tulip Wither_Rose Oxeye_Daisy"
+      >
+        Draw/Shop for clothes/Makeup/Paint
+      </button>
+      <button
+        class="Lily_of_the_Valley Wither_Rose Cornflower Poppy Torchflower Allium"
+      >
+        Play video games or board games/Build with Legos/Solve puzzles
+      </button>
+      <button
+        class="Allium Blue_Orchid Oxeye_Daisy Rose_Bush Wither_Rose Orange_Tulip Red_Tulip"
+      >
+        Sing/Dance/Play an instrument
       </button>
     </div>
 
-    <script>
-      let myButtons = document.querySelectorAll("button");
-      var scores = Array(19).fill(0);
-      var scoresIndex = 0;
-      let scoreElement = document.querySelectorAll(".score-element");
-      var questionsCompleted = 0;
-
-      for (button of myButtons) {
-        button.onclick = matchAnswer;
-      }
-
-      function matchAnswer(event) {
-        let button = event.target;
-        let question = button.parentElement;
-
-        let isDandelion = button.classList.contains("Dandelion");
-        let isPoppy = button.classList.contains("Poppy");
-        let isBlueOrchid = button.classList.contains("Blue_Orchid");
-        let isAllium = button.classList.contains("Allium");
-        let isAzureBluet = button.classList.contains("Azure_Bluet");
-        let isRedTulip = button.classList.contains("Red_Tulip");
-        let isOrangeTulip = button.classList.contains("Orange_Tulip");
-        let isWhiteTulip = button.classList.contains("White_Tulip");
-        let isPinkTulip = button.classList.contains("Pink_Tulip");
-        let isOxeyeDaisy = button.classList.contains("Oxeye_Daisy");
-        let isCornflower = button.classList.contains("Cornflower");
-        let isLilyOfTheValley = button.classList.contains("Lily_of_the_Valley");
-        let isWitherRose = button.classList.contains("Wither_Rose");
-        let isTorchflower = button.classList.contains("Torchflower");
-        let isSunflower = button.classList.contains("Sunflower");
-        let isLilac = button.classList.contains("Lilac");
-        let isRoseBush = button.classList.contains("Rose_Bush");
-        let isPeony = button.classList.contains("Peony");
-        let isPitcherPlant = button.classList.contains("Pitcher_Plant");
-
-        button.classList.add("clicked");
-
-        if (isDandelion) {
-          scores[0]++;
-          scoreElement[0].innerHTML = scores[0];
-        }
-        if (isPoppy) {
-          scores[1]++;
-          scoreElement[1].innerHTML = scores[1];
-        }
-        if (isBlueOrchid) {
-          scores[2]++;
-          scoreElement[2].innerHTML = scores[2];
-        }
-        if (isAllium) {
-          scores[3]++;
-          scoreElement[3].innerHTML = scores[3];
-        }
-        if (isAzureBluet) {
-          scores[4]++;
-          scoreElement[4].innerHTML = scores[4];
-        }
-        if (isRedTulip) {
-          scores[5]++;
-          scoreElement[5].innerHTML = scores[5];
-        }
-        if (isOrangeTulip) {
-          scores[6]++;
-          scoreElement[6].innerHTML = scores[6];
-        }
-        if (isWhiteTulip) {
-          scores[7]++;
-          scoreElement[7].innerHTML = scores[7];
-        }
-        if (isPinkTulip) {
-          scores[8]++;
-          scoreElement[8].innerHTML = scores[8];
-        }
-        if (isOxeyeDaisy) {
-          scores[9]++;
-          scoreElement[9].innerHTML = scores[9];
-        }
-        if (isCornflower) {
-          scores[10]++;
-          scoreElement[10].innerHTML = scores[10];
-        }
-        if (isLilyOfTheValley) {
-          scores[11]++;
-          scoreElement[11].innerHTML = scores[11];
-        }
-        if (isWitherRose) {
-          scores[12]++;
-          scoreElement[12].innerHTML = scores[12];
-        }
-        if (isTorchflower) {
-          scores[13]++;
-          scoreElement[13].innerHTML = scores[13];
-        }
-        if (isSunflower) {
-          scores[14]++;
-          scoreElement[14].innerHTML = scores[14];
-        }
-        if (isLilac) {
-          scores[15]++;
-          scoreElement[15].innerHTML = scores[15];
-        }
-        if (isRoseBush) {
-          scores[16]++;
-          scoreElement[16].innerHTML = scores[16];
-        }
-        if (isPeony) {
-          scores[17]++;
-          scoreElement[17].innerHTML = scores[17];
-        }
-        if (isPitcherPlant) {
-          scores[18]++;
-          scoreElement[18].innerHTML = scores[18];
-        }
-
-        questionsCompleted++;
-        if (questionsCompleted >= 6) {
-          console.log(questionsCompleted);
-          let resultsDiv = document.querySelector(".resultsDiv");
-          resultsDiv.style.display = "block";
-          var buttonInsideDiv = document.getElementById("buttonInsideDiv");
-          buttonInsideDiv.addEventListener("click", openPage);
-          scrollToBottom();
-        }
-        disableButtons(question);
-      }
-
-      function scrollToBottom() {
-        // Get the height of the document
-        var height = document.documentElement.scrollHeight - window.innerHeight;
-        // Scroll the window to the bottom of the document
-        window.scroll({
-          top: height,
-          behavior: "smooth", // Add smooth scrolling behavior
-        });
-      }
-
-      function disableButtons(question) {
-        let currentButtons = question.querySelectorAll("button");
-        for (let button of currentButtons) {
-          button.disabled = true;
-        }
-      }
-
-      // open another page for results
-      function openPage() {
-        window.location.href = "results.html";
-      }
-    </script>
+    <div class="resultsDiv">
+      <h2 class="resultTitle" id="resultTitle"></h2>
+      <img id="resultImg" class="resultImg" src="" alt="" />
+      <p id="resultDesc"></p>
+      <p>Check out the other results by clicking on their names.</p>
+      <ul>
+        <li onclick="displayResults(aDandelion)">
+          Dandelion: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(aPoppy)">
+          Poppy: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(aBlueOrchid)">
+          Blue Orchid: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(anAllium)">
+          Allium: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(anAzureBluet)">
+          Azure Bluet: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(aRedTulip)">
+          Red Tulip: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(anOrangeTulip)">
+          Orange Tulip: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(aWhiteTulip)">
+          White Tulip: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(aPinkTulip)">
+          Pink Tulip: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(anOxeyeDaisy)">
+          Oxeye Daisy: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(aCornflower)">
+          Cornflower: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(aLilyOfTheValley)">
+          Lily of the Valley:
+          <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(aWitherRose)">
+          Wither Rose: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(aTorchflower)">
+          Torchflower: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(aSunflower)">
+          Sunflower: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(aLilac)">
+          Lilac: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(aRoseBush)">
+          Rose Bush: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(aPeony)">
+          Peony: <span class="score-element">0</span>
+        </li>
+        <li onclick="displayResults(aPitcherPlant)">
+          Pitcher Plant: <span class="score-element">0</span>
+        </li>
+      </ul>
+    </div>
   </body>
+  <script>
+    class Dandelion {
+      name = "Dandelion";
+      scoreVal = 0;
+      description =
+        "You are a gentle and kind individual. You are capable of being a rock for many people, which is greatly appreciated even if not often said. You can survive in many different conditions and climates. And you have an open-hearted, welcoming nature—-a truly admirable trait amongst many who have become guarded and jaded.\nBonus: Rabbits/bunnies love you :)";
+      imageSrc = "images/dandelionImg.png";
+      imageAlt = "A dandelion flower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Poppy {
+      name = "Poppy";
+      scoreVal = 0;
+      description =
+        "You are a gentle yet strong individual. You tend to keep to yourself but you are able to travel and survive in many locations and conditions, given your resourcefulness. People may underestimate you, but you have quite a bit of depth and internal passion. You are able to see past a lot of nonsense.";
+      imageSrc = "images/poppyImg.png";
+      imageAlt = "A poppy flower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Blue_Orchid {
+      name = "Blue Orchid";
+      scoreVal = 0;
+      description =
+        "You are a calm and relaxing person to be around. It’s a bit hard to get to know you at first, but once you let someone in, you are a very loyal and trustworthy friend. People feel like they can count on you. They may also find you to be a bit funny or unique. You may tend to like watching or reading stories that have a good amount of drama in them above other genres.";
+      imageSrc = "images/blueOrchidImg.png";
+      imageAlt = "A blue orchid flower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Allium {
+      name = "Allium";
+      scoreVal = 0;
+      description =
+        "You may be extremely good at being reliable during times of crisis. And in general, you have a pretty patient demeanor that many admire. You also have a certain charm to you, coming from your sense of creativity and intelligence. You tend to like being in bustling areas with people all around you. It stimulates your mind and gives you a sense of community.";
+      imageSrc = "images/alliumImg.png";
+      imageAlt = "An allium flower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Azure_Bluet {
+      name = "Azure Bluet";
+      scoreVal = 0;
+      description =
+        "You have a personality that is a bit akin to a professional martial artist. You have a strong moral compass, and you adhere to your principles with almost blind faith. You value community and are willing to fight for your loved ones (even while fighting, you do it fairly), but you are perfectly happy in your solitude. Many look up to you and your pure heart.";
+      imageSrc = "images/azureBluetImg.png";
+      imageAlt = "An azure bluet flower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Red_Tulip {
+      name = "Red Tulip";
+      scoreVal = 0;
+      description =
+        "You are a passionate person who is willing to do whatever it takes to get to where you want/need to be. You are ambitious and can sometimes be overtaken by rage if anyone tries to hurt you or the ones you love. When dealing with unsavory people, you are good at pinpointing their faults and wearing down their egos. You appreciate grandeur in nature and find happiness in exploring unique places.";
+      imageSrc = "images/redTulipImg.png";
+      imageAlt = "A red tulip flower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Orange_Tulip {
+      name = "Orange Tulip";
+      scoreVal = 0;
+      description =
+        "You are an extroverted and enthusiastic person who is willing to do whatever it takes to get to where you want/need to be. You are ambitious and can sometimes be overtaken by rage if anyone tries to hurt you or the ones you love. When dealing with unsavory people, you are good at pinpointing their faults and wearing down their egos. You appreciate grandeur in nature and find happiness in exploring unique places.";
+      imageSrc = "images/orangeTulipImg.png";
+      imageAlt = "An orange tulip flower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class White_Tulip {
+      name = "White Tulip";
+      scoreVal = 0;
+      description =
+        "You are willing to do whatever it takes to get to where you want/need to be. You are ambitious and can sometimes be overtaken by rage if anyone tries to hurt you or the ones you love. When dealing with unsavory people, you are good at pinpointing their faults and wearing down their egos. Interestingly, you do possess a bit of a dichotomous trait: You can be very forgiving if you see positive change in an unsavory person. You also appreciate grandeur in nature and find happiness in exploring unique places.";
+      imageSrc = "images/whiteTulipImg.png";
+      imageAlt = "A white tulip flower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Pink_Tulip {
+      name = "Pink Tulip";
+      scoreVal = 0;
+      description =
+        "You are willing to do whatever it takes to get to where you want/need to be. You are ambitious and can sometimes be overtaken by rage if anyone tries to hurt you or the ones you love. When dealing with unsavory people, you are good at pinpointing their faults and wearing down their egos. With those whom you love, you can be very affectionate. You appreciate grandeur in nature and find happiness in exploring unique places.";
+      imageSrc = "images/pinkTulipImg.png";
+      imageAlt = "A pink tulip flower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Oxeye_Daisy {
+      name = "Oxeye Daisy";
+      scoreVal = 0;
+      description =
+        "You show many traits of a purely pacifistic, free-spirited person. You have a very healing presence to those around you, and you possess the ability to make someone feel safe and at home if they are a part of your circle. You value community to a high extent and appreciate beautiful, scenic places as they carry that familiar healing quality.";
+      imageSrc = "images/oxeyeDaisyImg.png";
+      imageAlt = "An oxeye daisy flower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Cornflower {
+      name = "Cornflower";
+      scoreVal = 0;
+      description =
+        "You are an intelligent and resourceful team-player. People see you as a confident and reliable backbone of a team, and you imbue a strong sense of hope in them for success. You are able to help steer your community to greatness, as you have a great sense of strategy. You may also be pretty athletic or into sporty activities.";
+      imageSrc = "images/cornflowerImg.png";
+      imageAlt = "A cornflower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Lily_of_the_Valley {
+      name = "Lily of the Valley";
+      scoreVal = 0;
+      description =
+        "You do whatever it takes to get to where you need to be. When overtaken by rage if anyone tries to hurt you or the ones you love, you go all out with full force. When dealing with unsavory people, you make sure that they are punished severely. Interestingly, you do possess some dichotomous traits: You can be very forgiving if you see positive change in an unsavory person, and you can be quite sweet and good-natured with loved ones. You tend to value a bit of solitude and can be quite mysterious.";
+      imageSrc = "images/lilyOfTheValleyImg.png";
+      imageAlt = "A lily of the valley flower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Wither_Rose {
+      name = "Wither Rose";
+      scoreVal = 0;
+      description =
+        "You are the definition of the ‘strong, silent type.’ You carry yourself with a lot of calm elegance, mystery, and sophistication. But if anyone crosses you, you would not hesitate to mercilessly go too far as a response. You see beauty in the more eerie parts of life; you are unafraid to fully explore and embrace topics like death and grief. You may also be capable of delivering silent but deadly farts.";
+      imageSrc = "images/witherRoseImg.png";
+      imageAlt = "A wither rose flower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Torchflower {
+      name = "Torchflower";
+      scoreVal = 0;
+      description =
+        "It is very hard to reach you, but wherever you are, you are the life of the party. You have a pretty fiery personality, making you great at entertaining those around you. However, you are also very perceptive; you are able to see through a lot of people’s lies. You can discern what is right for you and what is not, making you very clever in most settings. \nBonus: Parrots and chickens love you :)";
+      imageSrc = "images/torchflowerImg.png";
+      imageAlt = "A torchflower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Sunflower {
+      name = "Sunflower";
+      scoreVal = 0;
+      description =
+        "You are a high-spirited and warm individual. You prefer to live a simple, carefree life filled with joy and fun. You are happiest indulging in the aesthetics of the world and being with your tribe—-friends who have a very similar outlook on life as you. You live a relatively routine life that could involve lots of sunbathing and summery activities.";
+      imageSrc = "images/sunflowerImg.png";
+      imageAlt = "A sunflower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Lilac {
+      name = "Lilac";
+      scoreVal = 0;
+      description =
+        "You are an elegant and beautiful individual who would naturally draw in a lot of eyes—-especially with your larger-than-life nature. But you tend to enjoy relaxing and laying low most of the time. Those who get to know you see your compassionate and loving side. You value aesthetics to a high degree and may enjoy fashion quite a bit.";
+      imageSrc = "images/lilacImg.png";
+      imageAlt = "A lilac flower in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Rose_Bush {
+      name = "Rose Bush";
+      scoreVal = 0;
+      description =
+        "You are a very extroverted, passionate, and fiery person. You are a true romantic at heart, and you may have a lot of lovers or at least love interests. You care a lot about aesthetics and may have a strong affinity for fashion. Although you are quite extroverted, you enjoy settling into calm, shaded environments.";
+      imageSrc = "images/roseBushImg.png";
+      imageAlt = "An rose bush in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Peony {
+      name = "Peony";
+      scoreVal = 0;
+      description =
+        "You are a bashful and beautiful individual who would naturally draw in a lot of eyes—-especially with your larger-than-life nature. But you tend to enjoy relaxing and laying low most of the time. Those who get to know you see your innocent and loving side. You value aesthetics to a high degree and may enjoy fashion quite a bit.";
+      imageSrc = "images/peonyImg.png";
+      imageAlt = "A peony in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+    class Pitcher_Plant {
+      name = "Pitcher Plant";
+      scoreVal = 0;
+      description =
+        "You are a resilient beauty. You possess the traits of an elegant and extravagant party-attender, as well as the traits of a resilient fighter. Against many harsh conditions that life could pit you against, you hold your own by standing tall and going after what you need without the use of any tricks. Your straightforwardness and honesty is admirable. \nBonus: Parrots and chickens love you :)";
+      imageSrc = "images/pitcherPlantImg.png";
+      imageAlt = "A pitcher plant in Minecraft.";
+
+      scoreUpdate() {
+        this.scoreVal++;
+      }
+    }
+
+    let myButtons = document.querySelectorAll("button");
+    var scores = Array(19).fill(0);
+    var scoresIndex = 0;
+    let scoreElement = document.querySelectorAll(".score-element");
+    var questionsCompleted = 0;
+    var flowersList = Array(19);
+
+    //instances of all 19 flower classes - and adding them to the flowers list for scoring purposes
+    const aDandelion = new Dandelion();
+    flowersList[0] = aDandelion;
+    const aPoppy = new Poppy();
+    flowersList[1] = aPoppy;
+    const aBlueOrchid = new Blue_Orchid();
+    flowersList[2] = aBlueOrchid;
+    const anAllium = new Allium();
+    flowersList[3] = anAllium;
+    const anAzureBluet = new Azure_Bluet();
+    flowersList[4] = anAzureBluet;
+    const aRedTulip = new Red_Tulip();
+    flowersList[5] = aRedTulip;
+    const anOrangeTulip = new Orange_Tulip();
+    flowersList[6] = anOrangeTulip;
+    const aWhiteTulip = new Poppy();
+    flowersList[7] = aWhiteTulip;
+    const aPinkTulip = new Pink_Tulip();
+    flowersList[8] = aPinkTulip;
+    const anOxeyeDaisy = new Oxeye_Daisy();
+    flowersList[9] = anOxeyeDaisy;
+    const aCornflower = new Cornflower();
+    flowersList[10] = aCornflower;
+    const aLilyOfTheValley = new Lily_of_the_Valley();
+    flowersList[11] = aLilyOfTheValley;
+    const aWitherRose = new Wither_Rose();
+    flowersList[12] = aWitherRose;
+    const aTorchflower = new Torchflower();
+    flowersList[13] = aTorchflower;
+    const aSunflower = new Sunflower();
+    flowersList[14] = aSunflower;
+    const aLilac = new Lilac();
+    flowersList[15] = aLilac;
+    const aRoseBush = new Rose_Bush();
+    flowersList[16] = aRoseBush;
+    const aPeony = new Peony();
+    flowersList[17] = aPeony;
+    const aPitcherPlant = new Pitcher_Plant();
+    flowersList[18] = aPitcherPlant;
+
+    for (button of myButtons) {
+      button.onclick = matchAnswer;
+    }
+
+    function matchAnswer(event) {
+      let button = event.target;
+      let question = button.parentElement;
+
+      let isDandelion = button.classList.contains("Dandelion");
+      let isPoppy = button.classList.contains("Poppy");
+      let isBlueOrchid = button.classList.contains("Blue_Orchid");
+      let isAllium = button.classList.contains("Allium");
+      let isAzureBluet = button.classList.contains("Azure_Bluet");
+      let isRedTulip = button.classList.contains("Red_Tulip");
+      let isOrangeTulip = button.classList.contains("Orange_Tulip");
+      let isWhiteTulip = button.classList.contains("White_Tulip");
+      let isPinkTulip = button.classList.contains("Pink_Tulip");
+      let isOxeyeDaisy = button.classList.contains("Oxeye_Daisy");
+      let isCornflower = button.classList.contains("Cornflower");
+      let isLilyOfTheValley = button.classList.contains("Lily_of_the_Valley");
+      let isWitherRose = button.classList.contains("Wither_Rose");
+      let isTorchflower = button.classList.contains("Torchflower");
+      let isSunflower = button.classList.contains("Sunflower");
+      let isLilac = button.classList.contains("Lilac");
+      let isRoseBush = button.classList.contains("Rose_Bush");
+      let isPeony = button.classList.contains("Peony");
+      let isPitcherPlant = button.classList.contains("Pitcher_Plant");
+
+      button.classList.add("clicked");
+
+      if (isDandelion) {
+        aDandelion.scoreUpdate();
+        scores[0]++;
+        scoreElement[0].innerHTML = scores[0];
+      }
+      if (isPoppy) {
+        aPoppy.scoreUpdate();
+        scores[1]++;
+        scoreElement[1].innerHTML = scores[1];
+      }
+      if (isBlueOrchid) {
+        aBlueOrchid.scoreUpdate();
+        scores[2]++;
+        scoreElement[2].innerHTML = scores[2];
+      }
+      if (isAllium) {
+        anAllium.scoreUpdate();
+        scores[3]++;
+        scoreElement[3].innerHTML = scores[3];
+      }
+      if (isAzureBluet) {
+        anAzureBluet.scoreUpdate();
+        scores[4]++;
+        scoreElement[4].innerHTML = scores[4];
+      }
+      if (isRedTulip) {
+        aRedTulip.scoreUpdate();
+        scores[5]++;
+        scoreElement[5].innerHTML = scores[5];
+      }
+      if (isOrangeTulip) {
+        anOrangeTulip.scoreUpdate();
+        scores[6]++;
+        scoreElement[6].innerHTML = scores[6];
+      }
+      if (isWhiteTulip) {
+        aWhiteTulip.scoreUpdate();
+        scores[7]++;
+        scoreElement[7].innerHTML = scores[7];
+      }
+      if (isPinkTulip) {
+        aPinkTulip.scoreUpdate();
+        scores[8]++;
+        scoreElement[8].innerHTML = scores[8];
+      }
+      if (isOxeyeDaisy) {
+        anOxeyeDaisy.scoreUpdate();
+        scores[9]++;
+        scoreElement[9].innerHTML = scores[9];
+      }
+      if (isCornflower) {
+        aCornflower.scoreUpdate();
+        scores[10]++;
+        scoreElement[10].innerHTML = scores[10];
+      }
+      if (isLilyOfTheValley) {
+        aLilyOfTheValley.scoreUpdate();
+        scores[11]++;
+        scoreElement[11].innerHTML = scores[11];
+      }
+      if (isWitherRose) {
+        aWitherRose.scoreUpdate();
+        scores[12]++;
+        scoreElement[12].innerHTML = scores[12];
+      }
+      if (isTorchflower) {
+        aTorchflower.scoreUpdate();
+        scores[13]++;
+        scoreElement[13].innerHTML = scores[13];
+      }
+      if (isSunflower) {
+        aSunflower.scoreUpdate();
+        scores[14]++;
+        scoreElement[14].innerHTML = scores[14];
+      }
+      if (isLilac) {
+        aLilac.scoreUpdate();
+        scores[15]++;
+        scoreElement[15].innerHTML = scores[15];
+      }
+      if (isRoseBush) {
+        aRoseBush.scoreUpdate();
+        scores[16]++;
+        scoreElement[16].innerHTML = scores[16];
+      }
+      if (isPeony) {
+        aPeony.scoreUpdate();
+        scores[17]++;
+        scoreElement[17].innerHTML = scores[17];
+      }
+      if (isPitcherPlant) {
+        aPitcherPlant.scoreUpdate();
+        scores[18]++;
+        scoreElement[18].innerHTML = scores[18];
+      }
+
+      questionsCompleted++;
+      if (questionsCompleted >= 7) {
+        console.log(questionsCompleted);
+        var result = calculateHighestScore();
+        displayResults(result);
+        let resultsDiv = document.querySelector(".resultsDiv");
+        resultsDiv.style.display = "block";
+        // var buttonInsideDiv = document.getElementById("buttonInsideDiv");
+        // buttonInsideDiv.addEventListener("click", openPage);
+        scrollToBottom();
+      }
+      disableButtons(question);
+    }
+
+    function displayResults(result) {
+      let res = document.getElementById("resultTitle");
+      document.getElementById("resultImg").src = result.imageSrc;
+      document.getElementById("resultImg").alt = result.imageAlt;
+      document.getElementById("resultDesc").innerHTML = result.description;
+      res.innerHTML = result.name;
+    }
+
+    function calculateHighestScore() {
+      shuffle(flowersList);
+      var highest = 0;
+      var highestFlower;
+      for (flower in flowersList) {
+        if (flowersList[flower].scoreVal >= highest) {
+          highestFlower = flowersList[flower];
+          highest = flowersList[flower].scoreVal;
+        }
+      }
+      return highestFlower;
+    }
+
+    //fisher-yates shuffle
+    function shuffle(array) {
+      let currentIndex = array.length,
+        randomIndex;
+
+      // While there remain elements to shuffle.
+      while (currentIndex > 0) {
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+          array[randomIndex],
+          array[currentIndex],
+        ];
+      }
+
+      return array;
+    }
+
+    function scrollToBottom() {
+      // Get the height of the document
+      // var height = document.querySelector(".resultsDiv").scrollTop;
+      // document.documentElement.scrollHeight - window.innerHeight - 450;
+      // Scroll the window to the bottom of the document
+      document
+        .querySelector(".resultsDiv")
+        .scrollIntoView({ behavior: "smooth" });
+
+      // window.scroll({
+      //   // top: height,
+      //   behavior: "smooth", // Add smooth scrolling behavior
+      // });
+    }
+
+    function disableButtons(question) {
+      let currentButtons = question.querySelectorAll("button");
+      for (let button of currentButtons) {
+        button.disabled = true;
+      }
+    }
+
+    // open another page for results
+    function openPage() {
+      window.location.href = "results.html";
+    }
+  </script>
 </html>
