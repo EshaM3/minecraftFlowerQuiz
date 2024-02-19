@@ -652,6 +652,7 @@
       document.getElementById("resultImg").alt = result.imageAlt;
       document.getElementById("resultDesc").innerHTML = result.description;
       res.innerHTML = result.name;
+      scrollToBottom();
     }
 
     function calculateHighestScore() {
@@ -710,9 +711,9 @@
       }
     }
 
-    // open another page for results
-    function openPage() {
-      window.location.href = "results.html";
-    }
+    // // open another page for results
+    // function openPage() {
+    //   window.location.href = "results.html";
+    // }
   </script>
 </html>
