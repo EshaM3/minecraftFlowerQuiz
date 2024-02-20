@@ -459,52 +459,54 @@
       }
     }
 
-    let myButtons = document.querySelectorAll("button");
-    var scores = Array(19).fill(0);
-    var scoresIndex = 0;
-    let scoreElement = document.querySelectorAll(".score-element");
+    var myButtons = document.querySelectorAll("button");
+    // var scores = Array(19).fill(0);
+    var scoreElement = document.querySelectorAll(".score-element");
     var questionsCompleted = 0;
-    var flowersList = Array(19);
+    var numberOfQuestions = document.querySelectorAll(".question").length;
 
     //instances of all 19 flower classes - and adding them to the flowers list for scoring purposes
     const aDandelion = new Dandelion();
-    flowersList[0] = aDandelion;
     const aPoppy = new Poppy();
-    flowersList[1] = aPoppy;
     const aBlueOrchid = new Blue_Orchid();
-    flowersList[2] = aBlueOrchid;
     const anAllium = new Allium();
-    flowersList[3] = anAllium;
     const anAzureBluet = new Azure_Bluet();
-    flowersList[4] = anAzureBluet;
     const aRedTulip = new Red_Tulip();
-    flowersList[5] = aRedTulip;
     const anOrangeTulip = new Orange_Tulip();
-    flowersList[6] = anOrangeTulip;
     const aWhiteTulip = new White_Tulip();
-    flowersList[7] = aWhiteTulip;
     const aPinkTulip = new Pink_Tulip();
-    flowersList[8] = aPinkTulip;
     const anOxeyeDaisy = new Oxeye_Daisy();
-    flowersList[9] = anOxeyeDaisy;
     const aCornflower = new Cornflower();
-    flowersList[10] = aCornflower;
     const aLilyOfTheValley = new Lily_of_the_Valley();
-    flowersList[11] = aLilyOfTheValley;
     const aWitherRose = new Wither_Rose();
-    flowersList[12] = aWitherRose;
     const aTorchflower = new Torchflower();
-    flowersList[13] = aTorchflower;
     const aSunflower = new Sunflower();
-    flowersList[14] = aSunflower;
     const aLilac = new Lilac();
-    flowersList[15] = aLilac;
     const aRoseBush = new Rose_Bush();
-    flowersList[16] = aRoseBush;
     const aPeony = new Peony();
-    flowersList[17] = aPeony;
     const aPitcherPlant = new Pitcher_Plant();
-    flowersList[18] = aPitcherPlant;
+
+    var flowersList = {
+      aDandelion,
+      aPoppy,
+      aBlueOrchid,
+      anAllium,
+      anAzureBluet,
+      aRedTulip,
+      anOrangeTulip,
+      aWhiteTulip,
+      aPinkTulip,
+      anOxeyeDaisy,
+      aCornflower,
+      aLilyOfTheValley,
+      aWitherRose,
+      aTorchflower,
+      aSunflower,
+      aLilac,
+      aRoseBush,
+      aPeony,
+      aPitcherPlant,
+    };
 
     for (button of myButtons) {
       button.onclick = matchAnswer;
@@ -538,102 +540,83 @@
 
       if (isDandelion) {
         aDandelion.scoreUpdate();
-        scores[0]++;
-        scoreElement[0].innerHTML = scores[0];
+        scoreElement[0].innerHTML = aDandelion.scoreVal;
       }
       if (isPoppy) {
         aPoppy.scoreUpdate();
-        scores[1]++;
-        scoreElement[1].innerHTML = scores[1];
+        scoreElement[1].innerHTML = aPoppy.scoreVal;
       }
       if (isBlueOrchid) {
         aBlueOrchid.scoreUpdate();
-        scores[2]++;
-        scoreElement[2].innerHTML = scores[2];
+        scoreElement[2].innerHTML = aBlueOrchid.scoreVal;
       }
       if (isAllium) {
         anAllium.scoreUpdate();
-        scores[3]++;
-        scoreElement[3].innerHTML = scores[3];
+        scoreElement[3].innerHTML = anAllium.scoreVal;
       }
       if (isAzureBluet) {
         anAzureBluet.scoreUpdate();
-        scores[4]++;
-        scoreElement[4].innerHTML = scores[4];
+        scoreElement[4].innerHTML = anAzureBluet.scoreVal;
       }
       if (isRedTulip) {
         aRedTulip.scoreUpdate();
-        scores[5]++;
-        scoreElement[5].innerHTML = scores[5];
+        scoreElement[5].innerHTML = aRedTulip.scoreVal;
       }
       if (isOrangeTulip) {
         anOrangeTulip.scoreUpdate();
-        scores[6]++;
-        scoreElement[6].innerHTML = scores[6];
+        scoreElement[6].innerHTML = anOrangeTulip.scoreVal;
       }
       if (isWhiteTulip) {
         aWhiteTulip.scoreUpdate();
-        scores[7]++;
-        scoreElement[7].innerHTML = scores[7];
+        scoreElement[7].innerHTML = aWhiteTulip.scoreVal;
       }
       if (isPinkTulip) {
         aPinkTulip.scoreUpdate();
-        scores[8]++;
-        scoreElement[8].innerHTML = scores[8];
+        scoreElement[8].innerHTML = aPinkTulip.scoreVal;
       }
       if (isOxeyeDaisy) {
         anOxeyeDaisy.scoreUpdate();
-        scores[9]++;
-        scoreElement[9].innerHTML = scores[9];
+        scoreElement[9].innerHTML = anOxeyeDaisy.scoreVal;
       }
       if (isCornflower) {
         aCornflower.scoreUpdate();
-        scores[10]++;
-        scoreElement[10].innerHTML = scores[10];
+        scoreElement[10].innerHTML = aCornflower.scoreVal;
       }
       if (isLilyOfTheValley) {
         aLilyOfTheValley.scoreUpdate();
-        scores[11]++;
-        scoreElement[11].innerHTML = scores[11];
+        scoreElement[11].innerHTML = aLilyOfTheValley.scoreVal;
       }
       if (isWitherRose) {
         aWitherRose.scoreUpdate();
-        scores[12]++;
-        scoreElement[12].innerHTML = scores[12];
+        scoreElement[12].innerHTML = aWitherRose.scoreVal;
       }
       if (isTorchflower) {
         aTorchflower.scoreUpdate();
-        scores[13]++;
-        scoreElement[13].innerHTML = scores[13];
+        scoreElement[13].innerHTML = aTorchflower.scoreVal;
       }
       if (isSunflower) {
         aSunflower.scoreUpdate();
-        scores[14]++;
-        scoreElement[14].innerHTML = scores[14];
+        scoreElement[14].innerHTML = aSunflower.scoreVal;
       }
       if (isLilac) {
         aLilac.scoreUpdate();
-        scores[15]++;
-        scoreElement[15].innerHTML = scores[15];
+        scoreElement[15].innerHTML = aLilac.scoreVal;
       }
       if (isRoseBush) {
         aRoseBush.scoreUpdate();
-        scores[16]++;
-        scoreElement[16].innerHTML = scores[16];
+        scoreElement[16].innerHTML = aRoseBush.scoreVal;
       }
       if (isPeony) {
         aPeony.scoreUpdate();
-        scores[17]++;
-        scoreElement[17].innerHTML = scores[17];
+        scoreElement[17].innerHTML = aPeony.scoreVal;
       }
       if (isPitcherPlant) {
         aPitcherPlant.scoreUpdate();
-        scores[18]++;
-        scoreElement[18].innerHTML = scores[18];
+        scoreElement[18].innerHTML = aPitcherPlant.scoreVal;
       }
 
       questionsCompleted++;
-      if (questionsCompleted >= 7) {
+      if (questionsCompleted >= numberOfQuestions) {
         console.log(questionsCompleted);
         var result = calculateHighestScore();
         displayResults(result);
@@ -641,7 +624,7 @@
         resultsDiv.style.display = "block";
         // var buttonInsideDiv = document.getElementById("buttonInsideDiv");
         // buttonInsideDiv.addEventListener("click", openPage);
-        scrollToBottom();
+        scrollToResult();
       }
       disableButtons(question);
     }
@@ -652,7 +635,7 @@
       document.getElementById("resultImg").alt = result.imageAlt;
       document.getElementById("resultDesc").innerHTML = result.description;
       res.innerHTML = result.name;
-      scrollToBottom();
+      scrollToResult();
     }
 
     function calculateHighestScore() {
@@ -689,11 +672,12 @@
       return array;
     }
 
-    function scrollToBottom() {
+    function scrollToResult() {
       // Get the height of the document
       // var height = document.querySelector(".resultsDiv").scrollTop;
       // document.documentElement.scrollHeight - window.innerHeight - 450;
-      // Scroll the window to the bottom of the document
+
+      //scroll to result
       document
         .querySelector(".resultsDiv")
         .scrollIntoView({ behavior: "smooth" });
