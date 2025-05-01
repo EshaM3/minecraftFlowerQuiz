@@ -44,6 +44,10 @@ h2 {
   background: rgb(215, 237, 221);
 }
 
+li {
+  cursor: pointer;
+}
+
 button {
   transition: transform 0.4s;
   margin: 3px;
